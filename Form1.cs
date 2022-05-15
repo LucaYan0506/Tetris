@@ -22,21 +22,41 @@ namespace Tetriis
             }
         }
 
+        Random rnd = new Random();
+
+        List<Image> images = new List<Image>
+        {
+            Properties.Resources.O_Tetromino1,
+            Properties.Resources.I_Tetromino1,
+            Properties.Resources.S_Tetromino1,
+            Properties.Resources.Z_Tetromino1,
+            Properties.Resources.L_Tetromino1,
+            Properties.Resources.J_Tetromino1,
+            Properties.Resources.T_Tetromino1,
+        };
         Block block;
+        int nextBlock;
+
 
         private void blockDown_Tick(object sender, EventArgs e)
         {
-            foreach (PictureBox p in block.items)
-            {
-                p.Location = new Point(p.Location.X, p.Location.Y + 50);
-            }
+            block.Location = new Point(block.Location.X, block.Location.Y + 50);
             blockDown.Interval = 1000;
+
+            if (block.Location.Y + block.Size.Height == 800)
+            {
+                block = new Block(blocksContainer, nextBlock);
+                nextBlock = rnd.Next(7);
+                next_blockImg.BackgroundImage = images[nextBlock];
+            }
         }
 
         private void playBtn_Click(object sender, EventArgs e)
         {
+            block = new Block(blocksContainer, rnd.Next(7));
+            nextBlock = rnd.Next(7);
+            next_blockImg.BackgroundImage = images[nextBlock];
             blockDown.Start();
-
         }
 
         private void keyDown(object sender, KeyEventArgs e)
@@ -76,12 +96,6 @@ namespace Tetriis
         private void previewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             e.IsInputKey = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int i = decimal.ToInt32(numericUpDown1.Value);
-            block = new Block(blocksContainer, i);
         }
     }
 }

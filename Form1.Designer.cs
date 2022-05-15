@@ -33,7 +33,8 @@ namespace Tetriis
             this.label1 = new System.Windows.Forms.Label();
             this.blocksContainer = new System.Windows.Forms.Panel();
             this.nxt_blockContainer = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.next_blockImg = new System.Windows.Forms.PictureBox();
+            this.background = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,12 +46,10 @@ namespace Tetriis
             this.restartBtn = new System.Windows.Forms.Button();
             this.change_speedBtn = new System.Windows.Forms.Button();
             this.blockDown = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.nxt_blockContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,21 +74,32 @@ namespace Tetriis
             // nxt_blockContainer
             // 
             this.nxt_blockContainer.BackColor = System.Drawing.Color.Gray;
-            this.nxt_blockContainer.Controls.Add(this.pictureBox1);
+            this.nxt_blockContainer.Controls.Add(this.next_blockImg);
             this.nxt_blockContainer.Controls.Add(this.label1);
+            this.nxt_blockContainer.Controls.Add(this.background);
             this.nxt_blockContainer.Location = new System.Drawing.Point(410, 12);
             this.nxt_blockContainer.Name = "nxt_blockContainer";
             this.nxt_blockContainer.Size = new System.Drawing.Size(201, 155);
             this.nxt_blockContainer.TabIndex = 6;
             // 
-            // pictureBox1
+            // next_blockImg
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 106);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.next_blockImg.BackColor = System.Drawing.Color.Transparent;
+            this.next_blockImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.next_blockImg.Location = new System.Drawing.Point(39, 42);
+            this.next_blockImg.Name = "next_blockImg";
+            this.next_blockImg.Size = new System.Drawing.Size(127, 86);
+            this.next_blockImg.TabIndex = 2;
+            this.next_blockImg.TabStop = false;
+            // 
+            // background
+            // 
+            this.background.BackColor = System.Drawing.Color.DimGray;
+            this.background.Location = new System.Drawing.Point(23, 32);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(157, 106);
+            this.background.TabIndex = 3;
+            this.background.TabStop = false;
             // 
             // panel3
             // 
@@ -208,30 +218,11 @@ namespace Tetriis
             this.blockDown.Interval = 1000;
             this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(416, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 86);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "testButton (generate block)";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(433, 495);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 12;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 800);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.change_speedBtn);
             this.Controls.Add(this.restartBtn);
             this.Controls.Add(this.playBtn);
@@ -245,9 +236,9 @@ namespace Tetriis
             this.Text = "Form1";
             this.nxt_blockContainer.ResumeLayout(false);
             this.nxt_blockContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,7 +249,7 @@ namespace Tetriis
         private System.Windows.Forms.Panel nxt_blockContainer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label detailPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox next_blockImg;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
@@ -268,8 +259,7 @@ namespace Tetriis
         private System.Windows.Forms.Button restartBtn;
         private System.Windows.Forms.Button change_speedBtn;
         private System.Windows.Forms.Timer blockDown;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.PictureBox background;
     }
 }
 

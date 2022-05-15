@@ -14,9 +14,18 @@ namespace Tetriis
         {
             generateBlock(container, type);
         }
-
         public List<PictureBox> items = new List<PictureBox>();
-        
+        public List<Image> images = new List<Image>
+        {
+            Properties.Resources.O_Tetromino,
+            Properties.Resources.I_Tetromino,
+            Properties.Resources.S_Tetromino,
+            Properties.Resources.Z_Tetromino,
+            Properties.Resources.L_Tetromino,
+            Properties.Resources.J_Tetromino,
+            Properties.Resources.T_Tetromino,
+        };
+
         public Point Location
         {
             get
@@ -45,155 +54,74 @@ namespace Tetriis
         }
 
         Size size = new Size(0,0);
-        Point location = new Point(353, 750);
-        List<List<Tuple<Point, CustomPictureBox.BorderClass>>> locations = new List<List<Tuple<Point, CustomPictureBox.BorderClass>>>{
+        Point location = new Point(int.MaxValue, int.MaxValue);
+        List<List<Point>> locations = new List<List<Point>>{
             //block O
-            new List<Tuple<Point,CustomPictureBox.BorderClass>> {
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 200, Y = 0 } ,
-                    new CustomPictureBox.BorderClass (false, true,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass (true, false,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 200, Y = 50 } ,
-                    new CustomPictureBox.BorderClass (false, false,true,true) ),
-
+            new List<Point>
+            {
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 200, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point{ X = 200, Y = 50 } ,
             },
             //block I
-            new List<Tuple<Point,CustomPictureBox.BorderClass>> {
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass (true, false,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 100 } ,
-                    new CustomPictureBox.BorderClass (true, false,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 150 } ,
-                    new CustomPictureBox.BorderClass (true, false,true,true) ),
-
+            new List<Point> {
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point{ X = 150, Y = 100 } ,
+                new Point{ X = 150, Y = 150 } ,
             },
             //block S
-            new List<Tuple<Point,CustomPictureBox.BorderClass>> {
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 200, Y = 0 } ,
-                    new CustomPictureBox.BorderClass (false, true,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass (false, false,true,true) ),
-
-                new Tuple<Point,CustomPictureBox.BorderClass> (
-                    new Point{ X = 100, Y = 50 } ,
-                    new CustomPictureBox.BorderClass (true, true,true,true) ),
-
+            new List<Point> {
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 200, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point{ X = 100, Y = 50 } ,
             },
             //block Z
-            new List<Tuple<Point, CustomPictureBox.BorderClass>> {
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 100, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true, false, true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 150, Y = 50 },
-                    new CustomPictureBox.BorderClass(true, false, true, true)),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 200, Y = 50 },
-                    new CustomPictureBox.BorderClass(false, true, true, true)),
-
+            new List<Point>{
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 100, Y = 0 } ,
+                new Point { X = 150, Y = 50 },
+                new Point { X = 200, Y = 50 },
             },
             //block L
-            new List<Tuple<Point, CustomPictureBox.BorderClass>> {
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass(true, false, true, true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 150, Y = 100 },
-                    new CustomPictureBox.BorderClass(true, false, true, true)),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 200, Y = 100 },
-                    new CustomPictureBox.BorderClass(false, true, true, true)),
-
+           new List<Point>{
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point { X = 150, Y = 100 },
+                new Point { X = 200, Y = 100 },
             },
             //block J
-            new List<Tuple<Point, CustomPictureBox.BorderClass>> {
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass(true, false, true, true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 150, Y = 100 },
-                    new CustomPictureBox.BorderClass(true, false, true, true)),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 100, Y = 100 },
-                    new CustomPictureBox.BorderClass(true, true, false, true)),
-
+            new List<Point> {
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point { X = 150, Y = 100 },
+                new Point { X = 100, Y = 100 },
             },
             //block T
-            new List<Tuple<Point, CustomPictureBox.BorderClass>> {
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 0 } ,
-                    new CustomPictureBox.BorderClass(true, true,true,false) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point{ X = 150, Y = 50 } ,
-                    new CustomPictureBox.BorderClass(true, true, true, true) ),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 200, Y = 50 },
-                    new CustomPictureBox.BorderClass(false, true, true, true)),
-
-                new Tuple<Point, CustomPictureBox.BorderClass>(
-                    new Point { X = 100, Y = 50 },
-                    new CustomPictureBox.BorderClass(true, true, false, true)),
-
+            new List<Point> {
+                new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 150, Y = 50 } ,
+                new Point { X = 200, Y = 50 },
+                new Point { X = 100, Y = 50 },
             },
         };
 
         void generateBlock(Panel panel, int nBlock)
         {
-            foreach (Tuple<Point, CustomPictureBox.BorderClass> x in locations[nBlock])
+            foreach (Point x in locations[nBlock])
             {
-                location = new Point(Math.Min(location.X, x.Item1.X), Math.Min(location.Y, x.Item1.Y));
-                size = new Size(Math.Max(size.Width, x.Item1.X), Math.Max(size.Height, x.Item1.Y));
+                location = new Point(Math.Min(location.X, x.X), Math.Min(location.Y, x.Y));
+                size = new Size(Math.Max(size.Width, x.X), Math.Max(size.Height, x.Y));
 
-                CustomPictureBox p = new CustomPictureBox();
+                PictureBox p = new PictureBox();
 
-                p.BackColor = Color.Yellow;
-                p.Location = x.Item1;
-                p.Border = x.Item2;
+                p.BackColor = Color.Transparent;
+                p.Location = x;
+                p.Size = new Size(50, 50);
+                p.BackgroundImageLayout = ImageLayout.Stretch;
+                p.BackgroundImage = images[nBlock];
 
                 panel.Controls.Add(p);
                 p.BringToFront();
