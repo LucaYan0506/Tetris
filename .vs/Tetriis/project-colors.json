@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b49a4cab-25bc-4d1e-899c-e63aa71242ad": {
+      "ProjectGuid": "b49a4cab-25bc-4d1e-899c-e63aa71242ad",
+      "DisplayName": "Tetriis",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

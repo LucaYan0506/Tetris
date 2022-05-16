@@ -8,3 +8,14 @@ D:\School\IT\C#\Tetriis\obj\Debug\Tetriis.csproj.GenerateResource.cache
 D:\School\IT\C#\Tetriis\obj\Debug\Tetriis.csproj.CoreCompileInputs.cache
 D:\School\IT\C#\Tetriis\obj\Debug\Tetriis.exe
 D:\School\IT\C#\Tetriis\obj\Debug\Tetriis.pdb
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\bin\Debug\Tetriis.exe.config
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\bin\Debug\Tetriis.exe
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\bin\Debug\Tetriis.pdb
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.AssemblyReference.cache
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.SuggestedBindingRedirects.cache
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.Form1.resources
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.Properties.Resources.resources
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.GenerateResource.cache
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.CoreCompileInputs.cache
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.exe
+C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.pdb

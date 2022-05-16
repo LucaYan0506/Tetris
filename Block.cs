@@ -60,51 +60,51 @@ namespace Tetriis
             new List<Point>
             {
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 200, Y = 0 } ,
-                new Point{ X = 150, Y = 50 } ,
-                new Point{ X = 200, Y = 50 } ,
+                new Point{ X = 175, Y = 0 } ,
+                new Point{ X = 150, Y = 25 } ,
+                new Point{ X = 175, Y = 25 } ,
             },
             //block I
             new List<Point> {
                 new Point{ X = 150, Y = 0 } ,
+                new Point{ X = 150, Y = 25 } ,
                 new Point{ X = 150, Y = 50 } ,
-                new Point{ X = 150, Y = 100 } ,
-                new Point{ X = 150, Y = 150 } ,
+                new Point{ X = 150, Y = 75 } ,
             },
             //block S
             new List<Point> {
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 200, Y = 0 } ,
-                new Point{ X = 150, Y = 50 } ,
-                new Point{ X = 100, Y = 50 } ,
+                new Point{ X = 175, Y = 0 } ,
+                new Point{ X = 150, Y = 25 } ,
+                new Point{ X = 125, Y = 25 } ,
             },
             //block Z
             new List<Point>{
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 100, Y = 0 } ,
-                new Point { X = 150, Y = 50 },
-                new Point { X = 200, Y = 50 },
+                new Point{ X = 125, Y = 0 } ,
+                new Point { X = 150, Y = 25 },
+                new Point { X = 175, Y = 25 },
             },
             //block L
            new List<Point>{
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 150, Y = 50 } ,
-                new Point { X = 150, Y = 100 },
-                new Point { X = 200, Y = 100 },
+                new Point{ X = 150, Y = 25 } ,
+                new Point { X = 150, Y = 50 },
+                new Point { X = 175, Y = 50 },
             },
             //block J
             new List<Point> {
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 150, Y = 50 } ,
-                new Point { X = 150, Y = 100 },
-                new Point { X = 100, Y = 100 },
+                new Point{ X = 150, Y = 25 } ,
+                new Point { X = 150, Y = 50 },
+                new Point { X = 125, Y = 50 },
             },
             //block T
             new List<Point> {
                 new Point{ X = 150, Y = 0 } ,
-                new Point{ X = 150, Y = 50 } ,
-                new Point { X = 200, Y = 50 },
-                new Point { X = 100, Y = 50 },
+                new Point{ X = 150, Y = 25 } ,
+                new Point { X = 175, Y = 25 },
+                new Point { X = 125, Y = 25 },
             },
         };
 
@@ -119,7 +119,7 @@ namespace Tetriis
 
                 p.BackColor = Color.Transparent;
                 p.Location = x;
-                p.Size = new Size(50, 50);
+                p.Size = new Size(25, 25);
                 p.BackgroundImageLayout = ImageLayout.Stretch;
                 p.BackgroundImage = images[nBlock];
 
@@ -129,7 +129,7 @@ namespace Tetriis
                 items.Add(p);
             }
 
-            size = new Size(size.Width - location.X + 50, size.Height - location.Y + 50);
+            size = new Size(size.Width - location.X + 25, size.Height - location.Y + 25);
         }
     }
 }

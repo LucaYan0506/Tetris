@@ -22,6 +22,8 @@ namespace Tetriis
             }
         }
 
+        bool[,] table = new bool[33, 17];
+
         Random rnd = new Random();
 
         List<Image> images = new List<Image>
@@ -40,11 +42,42 @@ namespace Tetriis
 
         private void blockDown_Tick(object sender, EventArgs e)
         {
-            block.Location = new Point(block.Location.X, block.Location.Y + 50);
+            block.Location = new Point(block.Location.X, block.Location.Y + 25);
             blockDown.Interval = 1000;
+
+            foreach (PictureBox p in block.items)
+            {
+                int i = p.Location.Y / 25 + 1;
+                int j = p.Location.X / 25 + 1;
+                if (table[i, j] == true)
+                {
+                    foreach (PictureBox piece in block.items)
+                    {
+                        MessageBox.Show((piece.Location.Y / 25).ToString() + " " + (piece.Location.X / 25).ToString());
+                        table[piece.Location.Y / 25, piece.Location.X / 25] = true;
+                    }
+
+                    //generate new block
+                    block = new Block(blocksContainer, nextBlock);
+                    nextBlock = rnd.Next(7);
+                    next_blockImg.BackgroundImage = images[nextBlock];
+                    return;
+                }
+            }
+     
 
             if (block.Location.Y + block.Size.Height == 800)
             {
+                foreach (PictureBox p in block.items)
+                {
+                    int i = p.Location.Y / 25;
+                    int j = p.Location.X / 25;
+                    MessageBox.Show(i.ToString() + " " + j.ToString());
+
+                    table[i, j] = true;
+                }
+
+                //generate new block
                 block = new Block(blocksContainer, nextBlock);
                 nextBlock = rnd.Next(7);
                 next_blockImg.BackgroundImage = images[nextBlock];
@@ -68,14 +101,14 @@ namespace Tetriis
                         break;
                     case Keys.D:
                     case Keys.Right:
-                        if (block.Location.X <= 350 - block.Size.Width)
-                            block.Location = new Point(block.Location.X + 50, block.Location.Y);
+                        if (block.Location.X <= 375 - block.Size.Width)
+                            block.Location = new Point(block.Location.X + 25, block.Location.Y);
                         break;
 
                     case Keys.A:
                     case Keys.Left:
-                        if (block.Location.X >= 50)
-                            block.Location = new Point(block.Location.X - 50, block.Location.Y);
+                        if (block.Location.X >= 25)
+                            block.Location = new Point(block.Location.X - 25, block.Location.Y);
                         break;
 
                     case Keys.S:
