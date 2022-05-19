@@ -36,24 +36,20 @@ namespace Tetriis
             this.next_blockImg = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.linesLbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.speedLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.scoreLbl = new System.Windows.Forms.Label();
             this.detailPanel = new System.Windows.Forms.Label();
             this.playBtn = new System.Windows.Forms.Button();
             this.restartBtn = new System.Windows.Forms.Button();
             this.change_speedBtn = new System.Windows.Forms.Button();
             this.blockDown = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.blocksContainer.SuspendLayout();
             this.nxt_blockContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +66,6 @@ namespace Tetriis
             // blocksContainer
             // 
             this.blocksContainer.BackColor = System.Drawing.Color.Gray;
-            this.blocksContainer.Controls.Add(this.pictureBox1);
             this.blocksContainer.Location = new System.Drawing.Point(0, 0);
             this.blocksContainer.Name = "blocksContainer";
             this.blocksContainer.Size = new System.Drawing.Size(400, 800);
@@ -109,11 +104,11 @@ namespace Tetriis
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.linesLbl);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.speedLbl);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.scoreLbl);
             this.panel3.Controls.Add(this.detailPanel);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(410, 173);
@@ -121,16 +116,16 @@ namespace Tetriis
             this.panel3.Size = new System.Drawing.Size(201, 185);
             this.panel3.TabIndex = 7;
             // 
-            // label6
+            // linesLbl
             // 
-            this.label6.BackColor = System.Drawing.Color.DimGray;
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(19, 140);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 27);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "0";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linesLbl.BackColor = System.Drawing.Color.DimGray;
+            this.linesLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.linesLbl.Location = new System.Drawing.Point(19, 140);
+            this.linesLbl.Name = "linesLbl";
+            this.linesLbl.Size = new System.Drawing.Size(161, 27);
+            this.linesLbl.TabIndex = 6;
+            this.linesLbl.Text = "0";
+            this.linesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -144,16 +139,16 @@ namespace Tetriis
             this.label7.Text = "Lines";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // speedLbl
             // 
-            this.label4.BackColor = System.Drawing.Color.DimGray;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(19, 85);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 27);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "1";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.speedLbl.BackColor = System.Drawing.Color.DimGray;
+            this.speedLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.speedLbl.Location = new System.Drawing.Point(19, 85);
+            this.speedLbl.Name = "speedLbl";
+            this.speedLbl.Size = new System.Drawing.Size(161, 27);
+            this.speedLbl.TabIndex = 4;
+            this.speedLbl.Text = "1";
+            this.speedLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -167,16 +162,16 @@ namespace Tetriis
             this.label5.Text = "Speed";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // scoreLbl
             // 
-            this.label3.BackColor = System.Drawing.Color.DimGray;
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(23, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "0";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.scoreLbl.BackColor = System.Drawing.Color.DimGray;
+            this.scoreLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.scoreLbl.Location = new System.Drawing.Point(23, 29);
+            this.scoreLbl.Name = "scoreLbl";
+            this.scoreLbl.Size = new System.Drawing.Size(161, 27);
+            this.scoreLbl.TabIndex = 2;
+            this.scoreLbl.Text = "0";
+            this.scoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // detailPanel
             // 
@@ -208,6 +203,7 @@ namespace Tetriis
             this.restartBtn.TabIndex = 8;
             this.restartBtn.Text = "Restart";
             this.restartBtn.UseVisualStyleBackColor = true;
+            this.restartBtn.Click += new System.EventHandler(this.restartBtn_Click);
             // 
             // change_speedBtn
             // 
@@ -223,28 +219,11 @@ namespace Tetriis
             this.blockDown.Interval = 1000;
             this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(423, 384);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 271);
-            this.textBox1.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(29, 750);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 800);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.change_speedBtn);
             this.Controls.Add(this.restartBtn);
             this.Controls.Add(this.playBtn);
@@ -256,15 +235,12 @@ namespace Tetriis
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.blocksContainer.ResumeLayout(false);
             this.nxt_blockContainer.ResumeLayout(false);
             this.nxt_blockContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -275,18 +251,16 @@ namespace Tetriis
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label detailPanel;
         private System.Windows.Forms.PictureBox next_blockImg;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label linesLbl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label speedLbl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label scoreLbl;
         private System.Windows.Forms.Button playBtn;
         private System.Windows.Forms.Button restartBtn;
         private System.Windows.Forms.Button change_speedBtn;
         private System.Windows.Forms.Timer blockDown;
         private System.Windows.Forms.PictureBox background;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

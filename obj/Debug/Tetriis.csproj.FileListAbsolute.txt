@@ -19,3 +19,13 @@ C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.Gene
 C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.csproj.CoreCompileInputs.cache
 C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.exe
 C:\Users\Zhong Yi Yan\Desktop\Side Projects\Tetris\obj\Debug\Tetriis.pdb
+D:\School\IT\C#\Tetris\bin\Debug\Tetriis.exe.config
+D:\School\IT\C#\Tetris\bin\Debug\Tetriis.exe
+D:\School\IT\C#\Tetris\bin\Debug\Tetriis.pdb
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.csproj.AssemblyReference.cache
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.Form1.resources
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.Properties.Resources.resources
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.csproj.GenerateResource.cache
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.csproj.CoreCompileInputs.cache
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.exe
+D:\School\IT\C#\Tetris\obj\Debug\Tetriis.pdb
