@@ -46,10 +46,14 @@ namespace Tetriis
             this.restartBtn = new System.Windows.Forms.Button();
             this.change_speedBtn = new System.Windows.Forms.Button();
             this.blockDown = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.blocksContainer.SuspendLayout();
             this.nxt_blockContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,6 +70,7 @@ namespace Tetriis
             // blocksContainer
             // 
             this.blocksContainer.BackColor = System.Drawing.Color.Gray;
+            this.blocksContainer.Controls.Add(this.pictureBox1);
             this.blocksContainer.Location = new System.Drawing.Point(0, 0);
             this.blocksContainer.Name = "blocksContainer";
             this.blocksContainer.Size = new System.Drawing.Size(400, 800);
@@ -218,11 +223,28 @@ namespace Tetriis
             this.blockDown.Interval = 1000;
             this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(423, 384);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(188, 271);
+            this.textBox1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(29, 750);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 800);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.change_speedBtn);
             this.Controls.Add(this.restartBtn);
             this.Controls.Add(this.playBtn);
@@ -234,12 +256,15 @@ namespace Tetriis
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.blocksContainer.ResumeLayout(false);
             this.nxt_blockContainer.ResumeLayout(false);
             this.nxt_blockContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,6 +285,8 @@ namespace Tetriis
         private System.Windows.Forms.Button change_speedBtn;
         private System.Windows.Forms.Timer blockDown;
         private System.Windows.Forms.PictureBox background;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
