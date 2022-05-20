@@ -24,6 +24,15 @@ namespace Tetriis
             speedLbl.Text = (1000 - speed).ToString();
             linesLbl.Text = lines.ToString();
 
+            //create new block
+            block = new Block(blocksContainer, rnd.Next(7));
+            nextBlock = rnd.Next(7);
+
+            //set next block to current one (only when we start)
+            next_blockImg.BackgroundImage = images[block.Type];
+
+            //hide block
+            block.Visible = false;
         }
 
         public static PictureBox[,] table = new PictureBox[32,16];
@@ -117,7 +126,7 @@ namespace Tetriis
            //update lines and scores
             lines += completedLines.Count();
             linesLbl.Text = lines.ToString();
-            score += completedLines.Count() * 100;
+            score += completedLines.Count() * (600 - speed);
             scoreLbl.Text = score.ToString();
 
 
@@ -169,6 +178,16 @@ namespace Tetriis
                 //allow user to move the block now
                 gameStarted = true;
 
+                //lose condition
+                if (bLock_onBottom())
+                {
+                    blockDown.Stop();
+                    playBtn.Text = "Start";
+                    gameStarted = false;
+                    playBtn.Enabled = false;
+                    MessageBox.Show("You lost");
+                }
+
             }
             else if ((bLock_onBottom() | block.Location.Y + block.Size.Height == 800) & delay == 1)
                 delay--;
@@ -187,11 +206,26 @@ namespace Tetriis
 
         private void playBtn_Click(object sender, EventArgs e)
         {
-            block = new Block(blocksContainer, rnd.Next(7));
-            nextBlock = rnd.Next(7);
-            next_blockImg.BackgroundImage = images[nextBlock];
-            gameStarted = true;
-            blockDown.Start();
+            if (!gameStarted)
+            {
+                if (!block.Visible)
+                {
+                    //show next block
+                    next_blockImg.BackgroundImage = images[nextBlock];
+                    //set current block visible
+                    block.Visible = true;
+                }
+
+                blockDown.Start();
+                playBtn.Text = "Stop";
+            }
+            else
+            {
+                blockDown.Stop();
+                playBtn.Text = "Start";
+            }
+            gameStarted = !gameStarted;
+            blocksContainer.Focus();
         }
 
         private void keyDown(object sender, KeyEventArgs e)
@@ -201,7 +235,46 @@ namespace Tetriis
                 switch (e.KeyCode)
                 {
                     case Keys.Space:
-                        MessageBox.Show(block.Size.ToString());
+                        //forbit user to move the block now
+                        gameStarted = false;
+
+                        //move block down
+                        while (!(bLock_onBottom() | block.Location.Y + block.Size.Height == 800))
+                        {
+                            block.Location = new Point(block.Location.X, block.Location.Y + 25);
+                            score++;
+                            scoreLbl.Text = score.ToString();
+                        }
+
+                        //set in the table that here there is a block
+                        foreach (PictureBox p in block.Items)
+                        {
+                            int i = p.Location.Y / 25;
+                            int j = p.Location.X / 25;
+
+                            table[i, j] = p;
+                        }
+
+                        //check if there are any completed lines, if so remove it
+                        checkLines();
+
+                        //generate new block 
+                        block = new Block(blocksContainer, nextBlock);
+                        nextBlock = rnd.Next(7);
+                        next_blockImg.BackgroundImage = images[nextBlock];
+
+                        //allow user to move the block now
+                        gameStarted = true;
+
+                        //lose condition
+                        if (bLock_onBottom())
+                        {
+                            blockDown.Stop();
+                            playBtn.Text = "Start";
+                            gameStarted = false;
+                            playBtn.Enabled = false;
+                            MessageBox.Show("You lost");
+                        }
                         break;
                     case Keys.D:
                     case Keys.Right:
@@ -238,9 +311,30 @@ namespace Tetriis
 
         private void restartBtn_Click(object sender, EventArgs e)
         {
+
             table = new PictureBox[32, 16];
             blocksContainer.Controls.Clear();
-            playBtn.PerformClick();
+            block = new Block(blocksContainer, rnd.Next(7));
+            nextBlock = rnd.Next(7);
+            next_blockImg.BackgroundImage = images[nextBlock];
+            blockDown.Start();
+            if (!playBtn.Enabled)
+                playBtn.Enabled = true;
+            playBtn.Text = "Stop";
+            gameStarted = true;
+            score = 0;
+            scoreLbl.Text = score.ToString();
+            speed = 500;
+            speedLbl.Text = speed.ToString();
+        }
+
+        private void change_speedBtn_Click(object sender, EventArgs e)
+        {
+            speed -= 100;
+            if (speed <= 0)
+                speed = 500;
+            speedLbl.Text = (1000 - speed).ToString();
+            blockDown.Interval = speed;
         }
     }
 }

@@ -75,6 +75,7 @@ namespace Tetriis
             Properties.Resources.J_Tetromino,
             Properties.Resources.T_Tetromino,
         };
+        bool visible = true;
         int type = 0;
 
         public Block(Panel container, int type)
@@ -132,6 +133,20 @@ namespace Tetriis
             }
         }
 
+        public bool Visible
+        {
+            get
+            {
+                return visible;
+            }
+            set
+            {
+                visible = value;
+
+                foreach (PictureBox item in items)
+                    item.Visible = value;
+            }
+        }
         void generateBlock(Panel panel, int nBlock)
         {
             type = nBlock;

@@ -42,10 +42,10 @@ namespace Tetriis
             this.label5 = new System.Windows.Forms.Label();
             this.scoreLbl = new System.Windows.Forms.Label();
             this.detailPanel = new System.Windows.Forms.Label();
-            this.playBtn = new System.Windows.Forms.Button();
-            this.restartBtn = new System.Windows.Forms.Button();
-            this.change_speedBtn = new System.Windows.Forms.Button();
             this.blockDown = new System.Windows.Forms.Timer(this.components);
+            this.change_speedBtn = new Tetriis.NonSelectableButton();
+            this.restartBtn = new Tetriis.NonSelectableButton();
+            this.playBtn = new Tetriis.NonSelectableButton();
             this.nxt_blockContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.next_blockImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
@@ -185,48 +185,49 @@ namespace Tetriis
             this.detailPanel.Text = "Score";
             this.detailPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // playBtn
+            // blockDown
             // 
-            this.playBtn.Location = new System.Drawing.Point(416, 756);
-            this.playBtn.Name = "playBtn";
-            this.playBtn.Size = new System.Drawing.Size(201, 33);
-            this.playBtn.TabIndex = 7;
-            this.playBtn.Text = "Play";
-            this.playBtn.UseVisualStyleBackColor = true;
-            this.playBtn.Click += new System.EventHandler(this.playBtn_Click);
-            // 
-            // restartBtn
-            // 
-            this.restartBtn.Location = new System.Drawing.Point(416, 717);
-            this.restartBtn.Name = "restartBtn";
-            this.restartBtn.Size = new System.Drawing.Size(201, 33);
-            this.restartBtn.TabIndex = 8;
-            this.restartBtn.Text = "Restart";
-            this.restartBtn.UseVisualStyleBackColor = true;
-            this.restartBtn.Click += new System.EventHandler(this.restartBtn_Click);
+            this.blockDown.Interval = 1000;
+            this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
             // 
             // change_speedBtn
             // 
             this.change_speedBtn.Location = new System.Drawing.Point(416, 678);
             this.change_speedBtn.Name = "change_speedBtn";
             this.change_speedBtn.Size = new System.Drawing.Size(201, 33);
-            this.change_speedBtn.TabIndex = 9;
+            this.change_speedBtn.TabIndex = 10;
             this.change_speedBtn.Text = "Change Speed";
             this.change_speedBtn.UseVisualStyleBackColor = true;
+            this.change_speedBtn.Click += new System.EventHandler(this.change_speedBtn_Click);
             // 
-            // blockDown
+            // restartBtn
             // 
-            this.blockDown.Interval = 1000;
-            this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
+            this.restartBtn.Location = new System.Drawing.Point(416, 717);
+            this.restartBtn.Name = "restartBtn";
+            this.restartBtn.Size = new System.Drawing.Size(201, 33);
+            this.restartBtn.TabIndex = 10;
+            this.restartBtn.Text = "Restart";
+            this.restartBtn.UseVisualStyleBackColor = true;
+            this.restartBtn.Click += new System.EventHandler(this.restartBtn_Click);
+            // 
+            // playBtn
+            // 
+            this.playBtn.Location = new System.Drawing.Point(416, 756);
+            this.playBtn.Name = "playBtn";
+            this.playBtn.Size = new System.Drawing.Size(201, 33);
+            this.playBtn.TabIndex = 10;
+            this.playBtn.Text = "Play";
+            this.playBtn.UseVisualStyleBackColor = true;
+            this.playBtn.Click += new System.EventHandler(this.playBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 800);
-            this.Controls.Add(this.change_speedBtn);
-            this.Controls.Add(this.restartBtn);
             this.Controls.Add(this.playBtn);
+            this.Controls.Add(this.restartBtn);
+            this.Controls.Add(this.change_speedBtn);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.blocksContainer);
             this.Controls.Add(this.nxt_blockContainer);
@@ -256,11 +257,11 @@ namespace Tetriis
         private System.Windows.Forms.Label speedLbl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label scoreLbl;
-        private System.Windows.Forms.Button playBtn;
-        private System.Windows.Forms.Button restartBtn;
-        private System.Windows.Forms.Button change_speedBtn;
         private System.Windows.Forms.Timer blockDown;
         private System.Windows.Forms.PictureBox background;
+        private NonSelectableButton change_speedBtn;
+        private NonSelectableButton restartBtn;
+        private NonSelectableButton playBtn;
     }
 }
 
