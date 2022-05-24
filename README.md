@@ -5,7 +5,7 @@ Download the game and try to beat me!
 ![image](https://user-images.githubusercontent.com/83918638/169660440-3e364ce0-772a-45dc-a8d9-0a252a4a20db.png)
 
 ## How to download the game
-Click [here](https://github.com/LucaYan0506/Tetris/releases/download/v1.0.0/Installer.exe) to download the game (for windows). 
+Click [here](https://github.com/LucaYan0506/Tetris/releases/download/v2.0.0/installer.exe) to download the game (for windows). 
 
 #### Chrome
 If you are using Google Chrome, it may block download.   
