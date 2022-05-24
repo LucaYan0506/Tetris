@@ -191,7 +191,7 @@ namespace Tetriis
             // 
             // blockDown
             // 
-            this.blockDown.Interval = 1000;
+            this.blockDown.Interval = 500;
             this.blockDown.Tick += new System.EventHandler(this.blockDown_Tick);
             // 
             // Label2
@@ -243,7 +243,7 @@ namespace Tetriis
             this.change_speedBtn.Name = "change_speedBtn";
             this.change_speedBtn.Size = new System.Drawing.Size(201, 33);
             this.change_speedBtn.TabIndex = 10;
-            this.change_speedBtn.Text = "Change Speed";
+            this.change_speedBtn.Text = "Increase Speed";
             this.change_speedBtn.UseVisualStyleBackColor = true;
             this.change_speedBtn.Click += new System.EventHandler(this.change_speedBtn_Click);
             // 

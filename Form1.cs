@@ -129,6 +129,37 @@ namespace Tetriis
             score += completedLines.Count() * (600 - speed);
             scoreLbl.Text = score.ToString();
 
+            //check if need to increase speed 
+            if (score >= 1000 && score < 2000)
+                speed = Math.Min(400, speed);
+            else if (score >= 2000 && score < 3000)
+                speed = Math.Min(300, speed);
+            else if (score >= 3000 && score < 4000)
+                speed = Math.Min(200, speed);
+            else if (score >= 4000 && score < 5000)
+                speed = Math.Min(100, speed);
+            else if (score >= 5000 && score < 6000)
+                speed = Math.Min(90, speed);
+            else if (score >= 6000 && score < 7000)
+                speed = Math.Min(80, speed);
+            else if (score >= 7000 && score < 8000)
+                speed = Math.Min(70, speed);
+            else if (score >= 8000 && score < 9000)
+                speed = Math.Min(60, speed);
+            else if (score >= 9000 && score < 11000)
+                speed = Math.Min(50, speed);
+            else if (score >= 10000 && score < 11000)
+                speed = Math.Min(40, speed);
+            else if (score >= 11000 && score < 12000)
+                speed = Math.Min(30, speed);
+            else if (score >= 12000 && score < 13000)
+                speed = Math.Min(20, speed);
+            else if (score >= 13000 && score < 14000)
+                speed = Math.Min(10, speed);
+            else if (score >= 14000 && score < 15000)
+                speed = Math.Min(1, speed);
+            speedLbl.Text = (1000 - speed).ToString();
+            blockDown.Interval = speed;
 
             PictureBox[,] temp = table;
             table = new PictureBox[32,16];
@@ -146,6 +177,21 @@ namespace Tetriis
                     }
                 table_i--;
             }
+        }
+
+
+        private void change_speedBtn_Click(object sender, EventArgs e)
+        {
+            if (speed - 100 <= 0)
+            {
+                speed -= 10;
+                if (speed - 10 <= 0)
+                    speed = 1;
+            }
+            else
+                speed -= 100;
+            speedLbl.Text = (1000 - this.speed).ToString();
+            blockDown.Interval = this.speed;
         }
 
         private void blockDown_Tick(object sender, EventArgs e)
@@ -185,6 +231,7 @@ namespace Tetriis
                     playBtn.Text = "Start";
                     gameStarted = false;
                     playBtn.Enabled = false;
+                    timer1.Stop();
                     MessageBox.Show("You lost");
                 }
 
@@ -199,6 +246,38 @@ namespace Tetriis
                 {
                     score += 1;
                     scoreLbl.Text = score.ToString();
+                    blockDown.Interval = speed;
+
+                    //check if need to increase speed 
+                    if (score >= 1000 && score < 2000)
+                        speed = Math.Min(400, speed);
+                    else if (score >= 2000 && score < 3000)
+                        speed = Math.Min(300, speed);
+                    else if (score >= 3000 && score < 4000)
+                        speed = Math.Min(200, speed);
+                    else if (score >= 4000 && score < 5000)
+                        speed = Math.Min(100, speed);
+                    else if (score >= 5000 && score < 6000)
+                        speed = Math.Min(90, speed);
+                    else if (score >= 6000 && score < 7000)
+                        speed = Math.Min(80, speed);
+                    else if (score >= 7000 && score < 8000)
+                        speed = Math.Min(70, speed);
+                    else if (score >= 8000 && score < 9000)
+                        speed = Math.Min(60, speed);
+                    else if (score >= 9000 && score < 11000)
+                        speed = Math.Min(50, speed);
+                    else if (score >= 10000 && score < 11000)
+                        speed = Math.Min(40, speed);
+                    else if (score >= 11000 && score < 12000)
+                        speed = Math.Min(30, speed);
+                    else if (score >= 12000 && score < 13000)
+                        speed = Math.Min(20, speed);
+                    else if (score >= 13000 && score < 14000)
+                        speed = Math.Min(10, speed);
+                    else if (score >= 14000 && score < 15000)
+                        speed = Math.Min(1, speed);
+                    speedLbl.Text = (1000 - speed).ToString();
                     blockDown.Interval = speed;
                 }
             }
@@ -272,6 +351,7 @@ namespace Tetriis
                         if (bLock_onBottom())
                         {
                             blockDown.Stop();
+                            timer1.Stop();
                             playBtn.Text = "Start";
                             gameStarted = false;
                             playBtn.Enabled = false;
@@ -331,15 +411,6 @@ namespace Tetriis
             speedLbl.Text = speed.ToString();
             lines = 0;
             linesLbl.Text = lines.ToString();
-        }
-
-        private void change_speedBtn_Click(object sender, EventArgs e)
-        {
-            speed -= 100;
-            if (speed <= 0)
-                speed = 500;
-            speedLbl.Text = (1000 - speed).ToString();
-            blockDown.Interval = speed;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
