@@ -1,8 +1,9 @@
 # Tetris
 I re-did a famous game called Tetris using C#.
 
+My record is 48000 points in 1 hour.
 Download the game and try to beat me!  
-![image](https://user-images.githubusercontent.com/83918638/169660440-3e364ce0-772a-45dc-a8d9-0a252a4a20db.png)
+![image](https://user-images.githubusercontent.com/83918638/170113905-e424c9eb-a02f-4cae-aca4-2b24cf9a34db.png)
 
 ## How to download the game
 Click [here](https://github.com/LucaYan0506/Tetris/releases/download/v2.0.0/installer.exe) to download the game (for windows). 
