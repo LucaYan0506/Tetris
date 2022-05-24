@@ -217,11 +217,13 @@ namespace Tetriis
                 }
 
                 blockDown.Start();
+                timer1.Start();
                 playBtn.Text = "Stop";
             }
             else
             {
                 blockDown.Stop();
+                timer1.Stop();
                 playBtn.Text = "Start";
             }
             gameStarted = !gameStarted;
@@ -311,12 +313,13 @@ namespace Tetriis
 
         private void restartBtn_Click(object sender, EventArgs e)
         {
-
             table = new PictureBox[32, 16];
             blocksContainer.Controls.Clear();
             block = new Block(blocksContainer, rnd.Next(7));
             nextBlock = rnd.Next(7);
             next_blockImg.BackgroundImage = images[nextBlock];
+            timeLbl.Text = "00 : 00 : 00";
+            timer1.Start();
             blockDown.Start();
             if (!playBtn.Enabled)
                 playBtn.Enabled = true;
@@ -326,6 +329,8 @@ namespace Tetriis
             scoreLbl.Text = score.ToString();
             speed = 500;
             speedLbl.Text = speed.ToString();
+            lines = 0;
+            linesLbl.Text = lines.ToString();
         }
 
         private void change_speedBtn_Click(object sender, EventArgs e)
@@ -335,6 +340,27 @@ namespace Tetriis
                 speed = 500;
             speedLbl.Text = (1000 - speed).ToString();
             blockDown.Interval = speed;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int s = int.Parse(timeLbl.Text.Substring(10, 2)) + 1;
+            int m = int.Parse(timeLbl.Text.Substring(5, 2));
+            int h = int.Parse(timeLbl.Text.Substring(0, 2));
+
+            if (s == 60)
+            {
+                s = 0;
+                m++;
+            }
+            if (m == 60)
+            {
+                m = 0;
+                h++;
+            }
+
+            timeLbl.Text = h.ToString("#0#") + " : " + m.ToString("#0#") + " : " + s.ToString("#0#");
+
         }
     }
 }
